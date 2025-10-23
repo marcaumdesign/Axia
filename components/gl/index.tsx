@@ -4,6 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import { useControls } from "leva";
 import { Particles } from "./particles";
 import { VignetteShader } from "./shaders/vignetteShader";
+import { ShaderPlane } from "./shader-effects";
 
 export const GL = ({ hovering }: { hovering: boolean }) => {
   const {
@@ -77,6 +78,19 @@ export const GL = ({ hovering }: { hovering: boolean }) => {
             uniforms-offset-value={vignetteOffset}
           />
         </Effects>
+      </Canvas>
+    </div>
+  );
+};
+
+export const ShaderBackground = () => {
+  return (
+    <div className="absolute inset-0 -z-10">
+      <Canvas camera={{ position: [0, 0, 2], fov: 100, near: 0.01, far: 1000 }}>
+        <color attach="background" args={["#000"]} />
+        <group scale={[3.6, 3.6, 1]}>
+          <ShaderPlane position={[0, 0, 0]} />
+        </group>
       </Canvas>
     </div>
   );

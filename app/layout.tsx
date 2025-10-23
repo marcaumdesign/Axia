@@ -11,7 +11,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Axia Capital",
-  description: "Investment strategies that outperform the market",
+  description: "Alternative Investments",
   generator: "v0.app",
 }
 

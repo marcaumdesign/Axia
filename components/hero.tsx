@@ -60,7 +60,7 @@ export function Hero() {
           <div>{coordinates.lat}</div>
           <div>{coordinates.lon}</div>
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 items-end">
           <div>{timeString}</div>
           <div>{gmtOffset}</div>
         </div>
