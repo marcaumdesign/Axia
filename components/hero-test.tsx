@@ -78,6 +78,7 @@ export function HeroTest() {
         fill
         priority
         quality={100}
+        sizes="100vw"
         className="absolute inset-0 object-cover z-20"
         style={{
           objectFit: 'cover',
