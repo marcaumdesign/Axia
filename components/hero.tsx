@@ -108,7 +108,7 @@ export function Hero() {
 
       {/* Bottom section with copyright */}
       <div className="absolute bottom-0 left-0 right-0 flex justify-between p-8 text-white text-xs font-mono pointer-events-none">
-        <div>Axia Capital © 2025 Copyright.</div>
+        <div>Axia Capital LLC © 2025 Copyright.</div>
         <div>All Rights Reserved</div>
       </div>
     </div>
