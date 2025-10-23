@@ -6,7 +6,8 @@ import { useState, useEffect } from "react"
 export function Hero() {
   const [hovering, setHovering] = useState(false)
   const [coordinates, setCoordinates] = useState({ lat: "32°18'8\"W", lon: "84°23'6\"S" })
-  const [time, setTime] = useState("18:11:00 GMT-3")
+  const [timeString, setTimeString] = useState("18:11:00")
+  const [gmtOffset, setGmtOffset] = useState("GMT-3")
 
   useEffect(() => {
     // Get user's geolocation
@@ -26,14 +27,15 @@ export function Hero() {
     // Update time every second with GMT offset
     const updateTime = () => {
       const now = new Date()
-      const timeString = now.toLocaleTimeString("en-US", {
+      const time = now.toLocaleTimeString("en-US", {
         hour12: false,
         timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       })
       const offset = -now.getTimezoneOffset() / 60
       const gmtSign = offset >= 0 ? "+" : ""
-      const gmtOffset = `GMT${gmtSign}${offset}`
-      setTime(`${timeString} ${gmtOffset}`)
+      const gmt = `GMT${gmtSign}${offset}`
+      setTimeString(time)
+      setGmtOffset(gmt)
     }
 
     updateTime()
@@ -58,7 +60,10 @@ export function Hero() {
           <div>{coordinates.lat}</div>
           <div>{coordinates.lon}</div>
         </div>
-        <div>{time}</div>
+        <div className="flex flex-col gap-1">
+          <div>{timeString}</div>
+          <div>{gmtOffset}</div>
+        </div>
       </div>
 
       {/* Center section with logo */}
